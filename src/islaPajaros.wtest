@@ -1,0 +1,21 @@
+import pajaros.*
+import islaPajaros.*
+
+class PajaroMock {
+	var property cantEnojos = null
+	method enojarseVeces(cant) { cantEnojos = cant }
+}
+
+describe "Isla Pajaros" {
+	const pajaro = new PajaroMock()
+	
+	fixture {
+		islaPajaros.addPajaro(pajaro)
+	}
+
+	test "Invasión de cerditos" {
+		new InvasionDeCerditos(cantCerditos = 250).iniciar(islaPajaros)
+		
+		assert.equals(2, pajaro.cantEnojos())
+	}
+}

@@ -1,0 +1,17 @@
+import pajaros.*
+
+describe "Pajaros" {
+
+	test "PajaroComun" {
+		const pajaroComun = new PajaroComun(ira = 10)
+		assert.equals(20, pajaroComun.fuerza())
+	}
+
+	test "Red" {
+		const red = new Red(ira = 10)
+		assert.equals(0, red.fuerza())
+		
+		red.enojarse()
+		assert.equals(10, red.fuerza())
+	}
+}
